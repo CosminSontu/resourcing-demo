@@ -1,6 +1,6 @@
-define(['angular', 'resource', 'controllers/controllers',
-        'services/services', 'filters/filters',
-        'directives/directives'], 
+define(['angular', 'resource', 'controllers',
+        'services', 'filters',
+        'directives'], 
         function (angular) {
             return angular.module('ResourcingApp', 
                                   ['ngResource', 'controllers', 'services',

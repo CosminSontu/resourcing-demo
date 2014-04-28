@@ -1,4 +1,10 @@
-define(['angular'], function(angular) {
+define(['angular', 'wsClient'], function(angular, wsClient) {
    'use strict';
-   return angular.module('services', []);
+   
+    var services = angular.module('services', []);
+    services.factory('wsClient', function () {
+        return wsClient;
+    });
+    
+   return services;
 });

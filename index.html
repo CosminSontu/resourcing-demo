@@ -13,8 +13,20 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/app.css">
     </head>
     <body>
-        <div>TODO write contentsz</div>
-        <script data-main="src/main" 
+        <div class="col-md-12 navbar navbar-nav navbar-default navbar-fixed-top">
+                <ul class="nav  nav-pills ">
+                    <li class="nav"><a href="#">Taxonomy</a></li>
+                    <li class="nav"><a href="#">Add Opportunity</a></li>
+                    <li class="nav active"><a href="#">Manage Opportunities</a></li>
+                </ul>
+        </div>
+        
+        <div class="col-md-offset-1 col-md-10 nopadding hlr">
+            <div class="container" style="height:100%">
+                <div ng-view></div>
+            </div>
+        </div>
+        <script data-main="src/main"
                 src="lib/require/require.js">
         </script>
     </body>

@@ -1,22 +1,23 @@
 'use stict';
 
 require.config({
-  baseUrl: '/resourcing-demo',
+  baseUrl: '/',
   paths: {
     app: 'src/app',
-    controllers: 'src/controllers',
-    filters: 'src/filters',
-    directives: 'src/directives',
-    services: 'src/services',
+    controllers: 'src/controllers/controllers',
+    filters: 'src/filters/filters',
+    directives: 'src/directives/directives',
+    services: 'src/services/services',
     ngBootstrap: 'src/ngBootstrap',
     angular: 'lib/angular/angular',
     jQuery: 'lib/jquery/jquery',
     domReady: 'lib/require/domReady',
     resource: 'lib/angular/angular-resource',
-    bootstrap: 'lib/bootstrap/bootstrap'
+    bootstrap: 'lib/bootstrap/bootstrap',
+    wsClient: 'src/services/wsClient',
+    config: 'src/config'
  },
  shim: {
-   
    
    bootstrap: ['jQuery'],
                
@@ -29,12 +30,12 @@ require.config({
  }
 });
 
-require([ 'angular', 'app', 'ngBootstrap'
+require([ 'angular', 'app', 'config', 'services', 'ngBootstrap'
         // Any individual controller, service, directive or filter file
         // that you add will need to be pulled in here.
         // This will have to be maintained by hand.
     ],
-    function (angular, app) {
+    function (angular, app, config) {
       'use strict';
       app.config(['$routeProvider',
         function($routeProvider) {
