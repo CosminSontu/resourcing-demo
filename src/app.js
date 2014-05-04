@@ -1,10 +1,12 @@
-define(['angular', 'resource', 'controllers/controllers',
-        'services/services', 'filters/filters',
-        'directives/directives'], 
+define(['angular', 'resource', 'route', 'controllers',
+        'services', 'filters',
+        'directives'], 
         function (angular) {
+            console.log('app.js');
             return angular.module('ResourcingApp', 
-                                  ['ngResource', 'controllers', 'services',
-                                   'filters', 'directives']);
+                                  [ 'ngRoute', 'ngResource', 
+                                   'controllers', 'services', 'filters', 'directives']); 
+                                   // only angular modules should be specified
 });
 
 

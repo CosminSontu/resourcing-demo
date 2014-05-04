@@ -11,11 +11,25 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/app.css">
+        
+        
     </head>
     <body>
-        <div>TODO write contentsz</div>
-        <script data-main="src/main" 
-                src="lib/require/require.js">
-        </script>
+        <div class="col-md-12 navbar navbar-nav navbar-default navbar-fixed-top">
+                <ul class="nav  nav-pills ">
+                    <li class="nav"><a href="#/taxonomy">Taxonomy</a></li>
+                    <li class="nav"><a href="#/addops">Add Opportunity</a></li>
+                    <li class="nav active"><a href="#/manageops">Manage Opportunities</a></li>
+                </ul>
+        </div>
+        
+        <div class="col-md-offset-1 col-md-10 nopadding hlr">
+            <div class="container">
+                <div ng-view></div>
+               
+                <!--div ng-include src="'/partials/taxonomy.html'"/-->   
+            </div>
+        </div>
+        <script data-main="src/main" src="lib/require/require.js"></script>
     </body>
 </html>
