@@ -1,0 +1,46 @@
+<div ng-controller="ForecastCtrl">
+
+    <div class="row" style="row-offset">
+        <select ng-model="selectedOpportunity" 
+                ng-options="opportunity as opportunity.name for opportunity in opportunities" 
+                ng-change="opportunityChanged(selectedOpportunity)"
+                class="form-control big-font" size="3">
+        </select>
+    </div>
+
+    <div class="row" style="row-offset">
+        <div class="col-md-6 row-offset">
+            <div class="row">
+                <div class="col-md-12 btn btn-success big-font width-full">Completeness</div>
+            </div>
+            <div class="row">
+                <div style="font-size:50px;text-align:center;color:{{getCurrentCheckpoint().color}}">{{percentComplete}} %</div>
+            </div>
+            <div class="row" style="height:30px;">
+                <svg height="40" width="100%">
+                    <line x1="0%" y1="50%" x2="100%" y2="50%" color="red" stroke="red" style="stroke-width:30px;stroke:red;"/>
+                    <line x1="0%" y1="50%" ng-attr-x2="{{percentComplete}}%" y2="50%" color="green" stroke="green" style="stroke-width:30px;stroke:green;"/>
+                </svg>
+                
+            </div>
+        </div>
+        <div class="col-md-6 row-offset">
+            <div class="row" style="aligh:center;">
+                <div class="col-md-6 btn btn-success big-font width-third">Skill</div>
+                <div class="col-md-3 btn btn-success big-font width-third">Actual</div>
+                <div class="col-md-3 btn btn-success big-font width-third">Expected</div>
+            </div>
+            <div class="row">
+                <div ng-repeat="skill in forecastSkills | orderBy: skill.actual" ng-model="currentCheckpoint" ng-change="currentCheckpoint" class="row"> 
+                <div class="col-md-6 bigr-font" style="color:{{skill.color}};">{{skill.name}}</div>
+                <div class="col-md-3 bigr-font" style="color:{{skill.color}};">{{skill.actual}} </div>
+                <div class="col-md-3 bigr-font" style="color:{{skill.color}};">{{skill.expected}}</div>
+            </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="row" style="padding-top:60px;">
+        <rzslider data-rz-slider-floor="0" data-rz-slider-ceil="forecast._embedded.checkpoints.length-1" data-rz-slider-model="currentCheckpoint" data-rz-slider-translate="checkpointTranslate" class="ng-isolate-scope"/>
+    </div>
+    

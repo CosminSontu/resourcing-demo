@@ -4,56 +4,47 @@ require.config({
   baseUrl: '/',
   paths: {
     app: 'src/app',
+    // config
+    config: 'src/config',
+    // controllers
     controllers: 'src/controllers/controllers',
+    indexCtrl: 'src/controllers/index-ctrl',
+    taxonomyCtrl: 'src/controllers/taxonomy-ctrl',
+    forecastCtrl: 'src/controllers/forecast-ctrl',
+    // filters
     filters: 'src/filters/filters',
+    // directives
     directives: 'src/directives/directives',
+    rzSliderDtv: 'src/directives/rz-slider-dtv',
+    // services
     services: 'src/services/services',
-<<<<<<< HEAD
-=======
-    ngBootstrap: 'src/ngBootstrap',
->>>>>>> 34527c827cdac314ec3ccfd175218a44d247bf4d
-    angular: 'lib/angular/angular',
-    jQuery: 'lib/jquery/jquery',
-    domReady: 'lib/require/domReady',
-    resource: 'lib/angular/angular-resource',
-<<<<<<< HEAD
-    route: 'lib/angular/angular-route',
-=======
->>>>>>> 34527c827cdac314ec3ccfd175218a44d247bf4d
-    bootstrap: 'lib/bootstrap/bootstrap',
     wsClient: 'src/services/wsClient',
-    config: 'src/config'
+    // libs
+    domReady: 'lib/require/domReady',
+    jQuery: 'lib/jquery/jquery',
+    angular: 'lib/angular/angular',
+    resource: 'lib/angular/angular-resource',
+    route: 'lib/angular/angular-route',
+    bootstrap: 'lib/bootstrap/bootstrap',
+    d3: 'lib/d3/d3'
  },
  shim: {
    
-<<<<<<< HEAD
-   
-=======
-   bootstrap: ['jQuery'],
->>>>>>> 34527c827cdac314ec3ccfd175218a44d247bf4d
-               
    angular: { deps: [ 'jQuery' ],
               exports: 'angular'},
-   bootstrap: ['jQuery', 'angular'],
    resource: { deps: ['angular'],
                exports: 'resource' },
    route: { deps: ['angular'],
-            exports: 'route' }
-           
-  
+            exports: 'route' },
+   d3 : { exports: 'd3' }
  }
 });
 
-<<<<<<< HEAD
 require([ 'app', 'config', 'domReady'
-=======
-require([ 'angular', 'app', 'config', 'services', 'ngBootstrap'
->>>>>>> 34527c827cdac314ec3ccfd175218a44d247bf4d
         // Any individual controller, service, directive or filter file
         // that you add will need to be pulled in here.
         // This will have to be maintained by hand.
     ],
-<<<<<<< HEAD
     function(app, config, domReady) {
     'use strict';
     
@@ -74,20 +65,8 @@ require([ 'angular', 'app', 'config', 'services', 'ngBootstrap'
                                     }] );
     
    domReady(function() {
-       console.log('DOM is ready. Bootstrapping AngularJS(`ResourcingApp`)');
-       angular.bootstrap(document, ['ResourcingApp']);
+       var applicationModule = 'ResourcingApp';
+       console.log('DOM is ready. Bootstrapping AngularJS(`'+applicationModule+'`)');
+       angular.bootstrap(document, [ applicationModule ]);
    });
 }); 
-=======
-    function (angular, app, config) {
-      'use strict';
-      app.config(['$routeProvider',
-        function($routeProvider) {
-          // Define your Routes here
-        }
-      ]);
-    }
-);
-
-
->>>>>>> 34527c827cdac314ec3ccfd175218a44d247bf4d

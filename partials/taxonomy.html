@@ -1,3 +1,72 @@
-<div class="hlb"><p>Taxonomy</p></div>
+<div ng-controller="TaxonomyCtrl">
+                <div class="btn-group btn-toolbar" data-toggle="buttons" style="position: fixed;margin-top:5px;z-index: 999;" ng-show="showDuButtons()">
+                    <label ng-class="buttons['BHD']">
+                        <input id="bhdButton" type="radio" ng-click="select('BHD')">BHD</input>
+                    </label>
+                    <label ng-class="buttons['CLD']">
+                        <input id="cldButton" type="radio" ng-click="select('CLD')">CLD</input>
+                    </label>
+                    <label ng-class="buttons['ISD']">
+                        <input id="isdButton" type="radio" ng-click="select('ISD')">ISD</input>
+                    </label>
+                    <label ng-class="buttons['MDD']">
+                        <input id="mddButton" type="radio" ng-click="select('MDD')">MDD</input>
+                    </label>
+                    <label ng-class="buttons['ALL']">
+                        <input id="mddButton" type="radio" ng-click="select('ALL')">ALL</input>
+                    </label>
+		</div>
+                    
+                <div style="position:fixed; margin-top:70px;z-index:999;display:none;" > 
+                    <input type="number" ng-model="height" />
+                    <input type="submit" ng-click="initialise()" value="Apply"/>
+                </div>
+    
+		<div id="footer" style="position:absolute; right:20px; top:50px;">
+			Taxonomy
+			<div class="hint" style="font-style:italic;">
+				click on a circle for a more granular view.<br>
+				click on DU buttons to see employee count per skill.
+				<br>
+				
+				<div style="color:#000; font-style:normal">
+				Design and Engineering: OneTeam
+				</div>
+			</div>
+		</div>
+
+		<div id="body" style="position: absolute; top:80px"/>
+
+		<!-- Tooltip Template -->
+		<div id="toolTip" class="tooltip" style="opacity: 0; left: 437px; top: 248px;height:400px;">
+			<div id="head" class="header"></div>
+			<div id="header1" class="header1"></div>
+			<div id="header2" class="header2"></div>
+			<div style="position:absolute; left:10px">
+				<div id="bhdDiv" style="position: absolute;width:230px" class="selected">
+					<div class="header3"><br>Bucharest Delivery Unit</div>
+					<div class="header-rule"></div>
+					<div id="bhdCount" class="header4"></div>
+				</div>
+				<div id="cldDiv" style="top:80px;position: absolute;width:230px;">
+					<div class="header3"><br>Cluj Delivery Unit</div>
+					<div class="header-rule"></div>
+					<div id="cldCount" class="header4"></div>
+				</div>
+				<div id="isdDiv" style="top:160px;position: absolute;width:230px">
+					<div class="header3"><br>Iasi Delivery Unit</div>
+					<div class="header-rule"></div>
+					<div id="isdCount" class="header4"></div>
+				</div>
+				<div id="mddDiv" style="top:240px;position: absolute;width:230px;">
+					<div class="header3"><br>Chisinau Delivery Unit</div>
+					<div class="header-rule"></div>
+					<div id="mddCount" class="header4"></div>
+				</div>
+			</div>
+			<div class="tooltipTail"></div>
+		</div>
+</div>
+
 
 

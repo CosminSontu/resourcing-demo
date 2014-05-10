@@ -11,41 +11,43 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/tree.css">
+        <link rel="stylesheet" type="text/css" href="css/rzslider.css">
         
-        
+<!--    The hard way ... 
+        <script src="/lib/angular/angular.js" />
+        <script src="/lib/angular/angular-route.js" />
+        <script src="/lib/angular/angular-resource.js" />
+        <script src="/src/controllers/forecast-ctrl.js"/>
+        <script src="/src/controllers/index-ctrl.js"/>
+        <script src="/lib/d3/d3.js"/>
+        <script src="/src/controllers/taxonomy-ctrl.js"/>
+        <script src="/src/controllers/controllers.js"/>
+        <script src="/src/directives/rz-slider-dtv.js"/>
+        <script src="/src/directives/directives.js"/>
+        <script src="/src/filters/filters.js"/>
+        <script src="/src/services/wsClient.js"/>
+        <script src="/src/services/services.js"/>
+        <script src="/src/config.js"/>
+        <script src="/src/app.js"/>-->
+
     </head>
     <body>
-        <div class="col-md-12 navbar navbar-nav navbar-default navbar-fixed-top">
-                <ul class="nav  nav-pills ">
-<<<<<<< HEAD
-                    <li class="nav"><a href="#/taxonomy">Taxonomy</a></li>
-                    <li class="nav"><a href="#/addops">Add Opportunity</a></li>
-                    <li class="nav active"><a href="#/manageops">Manage Opportunities</a></li>
-=======
-                    <li class="nav"><a href="#">Taxonomy</a></li>
-                    <li class="nav"><a href="#">Add Opportunity</a></li>
-                    <li class="nav active"><a href="#">Manage Opportunities</a></li>
->>>>>>> 34527c827cdac314ec3ccfd175218a44d247bf4d
-                </ul>
+        <div class="col-md-12 navbar navbar-nav navbar-default navbar-fixed-top" ng-controller="IndexCtrl">
+            <ul class="nav  nav-pills " style="margin-top: 4px;">
+                <li ng-class="items[0]" ng-click="setIndex(0)"><a href="#/taxonomy">Taxonomy </a></li>
+                <li ng-class="items[1]" ng-click="setIndex(1)"><a href="#/taxonomy/distribution">Skill Distribution</a></li>
+                <li ng-class="items[2]" ng-click="setIndex(2)"><a href="#/taxonomy/deficit">Skill Deficit</a></li>
+                <li ng-class="items[3]" ng-click="setIndex(3)"><a href="#/opportunity/forecast">Opportunity Forecast</a></li>
+            </ul>
         </div>
-        
-        <div class="col-md-offset-1 col-md-10 nopadding hlr">
-<<<<<<< HEAD
-            <div class="container">
-                <div ng-view></div>
-               
-                <!--div ng-include src="'/partials/taxonomy.html'"/-->   
-            </div>
+
+
+        <div class="container">
+            <div ng-view></div>
         </div>
+
         <script data-main="src/main" src="lib/require/require.js"></script>
-=======
-            <div class="container" style="height:100%">
-                <div ng-view></div>
-            </div>
-        </div>
-        <script data-main="src/main"
-                src="lib/require/require.js">
-        </script>
->>>>>>> 34527c827cdac314ec3ccfd175218a44d247bf4d
+
     </body>
 </html>

@@ -1,6 +1,14 @@
-body { margin-top: 50px; }
+body { padding-top: 95px; }
 .style { color: black; }
 .nopadding { padding: 0px; }
 .hlb { border: 1px solid blue;}
 .hlr { border: 1px solid red;}
+.big-font { font-size:20px; text-align:center; }
+.bigr-font { font-size:30px; text-align:center; }
+.btn-custom {  width:100%;}
+.row-offset { margin-top: 20px;}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus { background-color: #47a447; }
+.width-third { width: 31.6%; margin-left:3px; }
+.width-half { width: 50%; }
+.width-full { width: 100%; }
 
