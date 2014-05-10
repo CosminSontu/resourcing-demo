@@ -1,12 +1,12 @@
 define(['d3'], function(d3) {
-    
+
     return function($scope, $location, $rootScope, wsClient) {
         $rootScope.$on("$locationChangeStart", function(event, next, current) {
             $scope.alreadySummed = false;
             $scope.initialize();
             $scope.update($scope.root);
         });
-        
+
         $scope.getMode = function(path) {
             switch (path) {
                 case '/taxonomy' :
@@ -192,21 +192,21 @@ define(['d3'], function(d3) {
         };
 
         $scope.postorder = function(node, level, nodeAction, leafAction) {
-            
+
             if (node._embedded && node._embedded.children && node._embedded.children.length > 0) {
                 if (nodeAction)
                     nodeAction(node);
                 node.sum = null;
                 for (var i = 0; i < node._embedded.children.length; i++)
                 {
-                    
+
                     var result = $scope.postorder(node._embedded.children[i], level + 1, nodeAction, leafAction);
                     if (!node.sum) {
                         node.sum = result;
                         //console.log('sum initialised for :'+node.key);
                         //console.log(node.sum);
                     } else {
-                        
+
                         for (var j = 0; j < $scope.sumFields.length; j++) {
                             node.sum[$scope.sumFields[j]] += result[$scope.sumFields[j]];
                         }
@@ -222,7 +222,7 @@ define(['d3'], function(d3) {
                     return leafAction(node, level, $scope.nodeLabelsStack);
                 }
             }
-            
+
             return {};
         };
 
@@ -232,7 +232,7 @@ define(['d3'], function(d3) {
             }, function(node, level, stack) {
                 $scope.radiusLevel(node);
             });
-            
+
             // for (var i=0; i < sumFields.length; i++) {
             // 	for (var level=0; level<levelMax.length; level++)
             // 	levelMax[level].sum[sumFields[i]]=0;
@@ -479,7 +479,7 @@ define(['d3'], function(d3) {
 
                 if (!d._embedded || !d._embedded.children) {
                     if ($scope.mode === 'F') {
-                        var sign = (d._embedded.empInfo.delta == 0) ? '' : ((d._embedded.empInfo.delta > 0) ? '+' : '-');
+                        var sign = (d._embedded.empInfo.delta == 0) ? '' : ((d._embedded.empInfo.delta > 0) ? '+' : '');
                         return ret + '(' + sign + d._embedded.empInfo.delta + ')';
                     } else {
 
