@@ -24,8 +24,8 @@ define(['config'], function(config) {
                     // success
                     taxonomyResult = taxonomy;
                     console.log('success');
-                    console.log(result);
-                    callback(taxonomy);
+                    console.log(taxonomyResult);
+                    callback(taxonomyResult);
                 }, function(errResponse) {
                     console.log('error');
                     console.log(errResponse);
